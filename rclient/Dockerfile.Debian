@@ -1,11 +1,13 @@
-FROM ubuntu:16.04
+FROM debian:stretch
 MAINTAINER info@bytesmith.de
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
 
 ## dependencies. Use cloudfront, official CDN gives frequent 503 errors
-RUN apt-get update \
+RUN sed -i "s/deb.debian.org/cloudfront.debian.net/" /etc/apt/sources.list \
+	&& sed -i "s/security.debian.org/cloudfront.debian.net\/debian-security/" /etc/apt/sources.list \
+	&& apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		bash-completion \
 		ca-certificates \
@@ -17,10 +19,13 @@ RUN apt-get update \
 		gsfonts \
 		libbz2-1.0 \
 		libcurl3 \
+		libicu57 \
+		libjpeg62-turbo \
 		libopenblas-dev \
 		libpangocairo-1.0-0 \
 		libpcre3 \
 		libpng16-16 \
+		libreadline7 \
 		libtiff5 \
 		liblzma5 \
 		locales \
