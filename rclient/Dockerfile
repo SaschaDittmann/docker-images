@@ -15,14 +15,18 @@ RUN apt-get update \
 		g++ \
 		gfortran \
 		gsfonts \
+		less \
 		libbz2-1.0 \
 		libcurl3 \
+		libgomp1 \
 		libopenblas-dev \
-		libpangocairo-1.0-0 \
+		libpango1.0-0 \
 		libpcre3 \
 		libpng16-16 \
 		libtiff5 \
 		liblzma5 \
+		libsm6 \
+		libxt6 \
 		locales \
 		make \
 		unzip \
